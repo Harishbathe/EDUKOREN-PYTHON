@@ -1,0 +1,87 @@
+sql commands 5 categories
+
+1. DDL --> data definition language  --> auto commit 
+	create , alter, rename, truncate, drop
+
+2. DML -> data manu/modi language  -> no
+	insert, update, delete, merge(upsert)
+
+3. DQL -> data query language  --> no
+	select, 
+
+4. DCL -> data control language  --> yes
+	grant, revoke, 
+
+5. TCL -> Transactional control language --> no
+	commit, rollback, savepoint
+
+
+oracle server --> database --> tablespaces --> users(schemas)--> Tables, view, indexes, store procedures
+
+==========================================================
+
+-- create
+CREATE TABLE EMPLOYEE (
+  empId NUMBER,
+  name VARCHAR2(15) NOT NULL,
+  dept VARCHAR2(10) NOT NULL
+);
+
+-- insert
+INSERT INTO EMPLOYEE VALUES (1, 'Clark', 'sales');
+INSERT INTO EMPLOYEE VALUES (2, 'Dave', 'Accounting');
+INSERT INTO EMPLOYEE VALUES (3, 'Ava', 'Sales');
+INSERT INTO EMPLOYEE VALUES (4, 'Ava', 'salES');
+
+alter table employee add salary number(10,2);
+select * from EMPLOYEE;
+
+-- salary as 8000
+update employee set salary= 8000;
+select * from EMPLOYEE;
+
+
+-- sales 9000, Accounting 10000
+update employee set salary =9000 where lower(dept)= 'sales';
+update employee set salary =10000 where dept='Accounting';
+update employee set salary = 8500 where empid =2;
+
+update employee set name ='john' where empId != 2;
+select * from employee;
+
+alter table employee drop column salary;
+
+select * from employee;
+
+alter table employee rename column name to emp_name;
+select * from EMPLOYEE;
+
+describe employee;
+
+alter table EMPLOYEE modify dept varchar2(15);
+
+describe employee;
+
+rename employee to employee_details;
+
+
+
+
+
+=============================================
+delete from employee where empId=4;
+select * from employee;
+
+delete from employee;
+select 'after delete' from dual;
+describe employee;
+
+truncate table employee;
+select 'after truncate' from dual;
+describe employee;
+
+
+drop table employee;
+select 'after drop' from dual;
+describe employee;
+==================================

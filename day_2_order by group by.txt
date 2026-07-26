@@ -1,0 +1,180 @@
+CREATE TABLE department_sales (
+    dept VARCHAR2(11),
+    city VARCHAR2(10),
+    sales NUMBER(12, 2)
+);
+
+-- 2. Insert 50 Rows of Data
+INSERT ALL
+  INTO department_sales (dept, city, sales) VALUES ('Sales', 'New York', 15000)
+  INTO department_sales (dept, city, sales) VALUES ('Marketing', 'Tokyo', 17350)
+  INTO department_sales (dept, city, sales) VALUES ('Finance', 'Sydney', 19700)
+  INTO department_sales (dept, city, sales) VALUES ('HR', 'London', 22050)
+  INTO department_sales (dept, city, sales) VALUES ('IT', 'Chicago', 24400)
+  INTO department_sales (dept, city, sales) VALUES ('Operations', 'Toronto', 26750)
+  INTO department_sales (dept, city, sales) VALUES ('Legal', 'Paris', 29100)
+  INTO department_sales (dept, city, sales) VALUES ('Engineering', 'Berlin', 31450)
+  INTO department_sales (dept, city, sales) VALUES ('Sales', 'New York', 33800)
+  INTO department_sales (dept, city, sales) VALUES ('Marketing', 'Tokyo', 36150)
+  INTO department_sales (dept, city, sales) VALUES ('Finance', 'Sydney', 38500)
+  INTO department_sales (dept, city, sales) VALUES ('HR', 'London', 40850)
+  INTO department_sales (dept, city, sales) VALUES ('IT', 'Chicago', 43200)
+  INTO department_sales (dept, city, sales) VALUES ('Operations', 'Toronto', 45550)
+  INTO department_sales (dept, city, sales) VALUES ('Legal', 'Paris', 47900)
+  INTO department_sales (dept, city, sales) VALUES ('Engineering', 'Berlin', 50250)
+  INTO department_sales (dept, city, sales) VALUES ('Sales', 'New York', 52600)
+  INTO department_sales (dept, city, sales) VALUES ('Marketing', 'Tokyo', 54950)
+  INTO department_sales (dept, city, sales) VALUES ('Finance', 'Sydney', 57300)
+  INTO department_sales (dept, city, sales) VALUES ('HR', 'London', 59650)
+  INTO department_sales (dept, city, sales) VALUES ('IT', 'Chicago', 62000)
+  INTO department_sales (dept, city, sales) VALUES ('Operations', 'Toronto', 64350)
+  INTO department_sales (dept, city, sales) VALUES ('Legal', 'Paris', 66700)
+  INTO department_sales (dept, city, sales) VALUES ('Engineering', 'Berlin', 69050)
+  INTO department_sales (dept, city, sales) VALUES ('Sales', 'New York', 71400)
+  INTO department_sales (dept, city, sales) VALUES ('Marketing', 'Tokyo', 73750)
+  INTO department_sales (dept, city, sales) VALUES ('Finance', 'Sydney', 76100)
+  INTO department_sales (dept, city, sales) VALUES ('HR', 'London', 78450)
+  INTO department_sales (dept, city, sales) VALUES ('IT', 'Chicago', 80800)
+  INTO department_sales (dept, city, sales) VALUES ('Operations', 'Toronto', 83150)
+  INTO department_sales (dept, city, sales) VALUES ('Legal', 'Paris', 85500)
+  INTO department_sales (dept, city, sales) VALUES ('Engineering', 'Berlin', 87850)
+  INTO department_sales (dept, city, sales) VALUES ('Sales', 'New York', 90200)
+  INTO department_sales (dept, city, sales) VALUES ('Marketing', 'Tokyo', 92550)
+  INTO department_sales (dept, city, sales) VALUES ('Finance', 'Sydney', 94900)
+  INTO department_sales (dept, city, sales) VALUES ('HR', 'London', 97250)
+  INTO department_sales (dept, city, sales) VALUES ('IT', 'Chicago', 99600)
+  INTO department_sales (dept, city, sales) VALUES ('Operations', 'Toronto', 101950)
+  INTO department_sales (dept, city, sales) VALUES ('Legal', 'Paris', 104300)
+  INTO department_sales (dept, city, sales) VALUES ('Engineering', 'Berlin', 106650)
+  INTO department_sales (dept, city, sales) VALUES ('Sales', 'New York', 109000)
+  INTO department_sales (dept, city, sales) VALUES ('Marketing', 'Tokyo', 111350)
+  INTO department_sales (dept, city, sales) VALUES ('Finance', 'Sydney', 113700)
+  INTO department_sales (dept, city, sales) VALUES ('HR', 'London', 116050)
+  INTO department_sales (dept, city, sales) VALUES ('IT', 'Chicago', 118400)
+  INTO department_sales (dept, city, sales) VALUES ('Operations', 'Toronto', 120750)
+  INTO department_sales (dept, city, sales) VALUES ('Legal', 'Paris', 123100)
+  INTO department_sales (dept, city, sales) VALUES ('Engineering', 'Berlin', 125450)
+  INTO department_sales (dept, city, sales) VALUES ('Sales', 'New York', 127800)
+  INTO department_sales (dept, city, sales) VALUES ('Marketing', 'Tokyo', 15150)
+SELECT * FROM dual;
+
+-- 3. Save Changes
+COMMIT;
+
+-- display only sales dept Data
+select * from department_sales where lower(dept) = 'sales';
+
+-- dispaly all sales records of which sales is >= 30000
+select * from department_sales where sales >= 30000;
+
+
+-- display sales records from tokyo city
+select * from department_sales where upper(city)= 'TOKYO';
+
+select 'sales b/w 20ka and 50k' from dual;
+
+-- dispaly all sales records of which sales in b/w 20k and 50k
+select * from department_sales where sales between 20000 and 50000;
+
+-- display sales records other than tokyo city
+select * from department_sales where upper(city) != 'TOKYO';
+
+
+==============================================================
+
+CREATE TABLE employees (
+    emp_name VARCHAR2(15),
+    dept     VARCHAR2(10),
+    city     VARCHAR2(13),
+    salary   NUMBER(10, 2)
+);
+
+INSERT ALL
+    INTO employees VALUES ('John Doe', 'HR', 'New York', 65000.00)
+    INTO employees VALUES ('Jane Smith', 'IT', 'San Francisco', 95000.00)
+    INTO employees VALUES ('Bob Johnson', 'Finance', 'Chicago', 85000.00)
+    INTO employees VALUES ('Alice Williams', 'Marketing', 'Austin', 70000.00)
+    INTO employees VALUES ('Charlie Brown', 'IT', 'Seattle', 105000.00)
+    INTO employees VALUES ('Emily Davis', 'HR', 'Miami', 62000.00)
+    INTO employees VALUES ('Frank Miller', 'Finance', 'New York', 90000.00)
+    INTO employees VALUES ('Grace Wilson', 'Sales', 'Los Angeles', 75000.00)
+    INTO employees VALUES ('Henry Moore', 'Marketing', 'Chicago', 72000.00)
+    INTO employees VALUES ('Ivy Taylor', 'IT', 'Boston', 98000.00)
+    INTO employees VALUES ('Jack Anderson', 'Sales', 'Dallas', 68000.00)
+    INTO employees VALUES ('Kate Thomas', 'Finance', 'San Francisco', 11000.00)
+    INTO employees VALUES ('Leo Jackson', 'HR', 'Atlanta', 64000.00)
+    INTO employees VALUES ('Mia White', 'IT', 'Denver', 89000.00)
+    INTO employees VALUES ('Nathan Harris', 'Marketing', 'New York', 78000.00)
+    INTO employees VALUES ('Olivia Martin', 'Sales', 'Phoenix', 67000.00)
+    INTO employees VALUES ('Paul Clark', 'Finance', 'Seattle', 92000.00)
+    INTO employees VALUES ('Quinn Lewis', 'IT', 'Austin', 102000.00)
+    INTO employees VALUES ('Rachel Young', 'HR', 'Chicago', 66000.00)
+    INTO employees VALUES ('Sam King', 'Sales', 'Detroit', 71000.00)
+SELECT * FROM dual;
+
+
+
+-- display all the emp details whose names starts with 'J'
+-- select * from employees where lower(emp_name) like 'j%';
+
+
+-- display all the emp details whose names ends  with 'n'
+-- select * from employees where lower(emp_name) like '%n';
+
+
+-- display all the emp details whose names have 'v' and 'y'
+select * from employees where lower(emp_name) like '%y%a%' or
+                               lower(emp_name) like '%a%y%';
+
+-- display hr employes data who has min salary of 50k                              
+select *  from employees where upper(dept)='HR' and salary >= 50000;
+
+=========================================
+
+
+-- select * from employees fetch first 10 rows only;
+
+-- select count(*) from employees;
+-- select count(*) as row_count from employees fetch first 10 rows only;
+
+--> from  --> select --> rows limit
+
+
+-- display the data as per salary incremental order
+-- select * from employees order by salary desc;
+
+-- display first 7 employees data whose salary is minimum
+-- select * from employees order by salary fetch first 7 rows only;
+==============================================
+
+-- print min salary across all the employees;
+--> count, min, max, avg, sum --> aggregation functions
+
+-- on entire table level
+-- select count(*) row_count,
+--         min(salary) min_salary,
+--         max(salary) max_salary,
+--         avg(salary) avg_salary,
+--         sum(salary) total_salary from employees;
+
+-- on some column level
+-- display min and max salary of each dept
+-- select dept, min(salary) min_salary,
+--             max(salary) max_salary from employees group by dept;
+
+
+-- display min and max salary of each dept and print dept names in asc order
+-- select dept, min(salary) min_salary,
+--             max(salary) max_salary from employees group by dept
+--                                                   order by dept;
+
+-- display min and max salary of each dept and city wise
+select dept, city, min(salary) min_salary,
+            max(salary) max_salary from employees group by dept, city
+                                                  order by dept, city;
+
+
+
+
+
+

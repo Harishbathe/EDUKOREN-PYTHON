@@ -1,0 +1,35 @@
+-- select DEPARTMENT_ID,count(*) as emp_count from hr.employees group by DEPARTMENT_ID;
+-- print howmany employees are reporting to each manager
+-- select MANAGER_ID,count(*) as emp_count from hr.employees group by MANAGER_ID;
+
+-- print min, max, avg, total salaries of from the employees
+-- select min(salary) as min_salary, max(salary) as max_salary, round(avg(salary), 2) as avg_salary
+-- , TRUNC(avg(salary), 2) as avg_salary, sum(salary) as total_salary from hr.employees;
+
+select round(123.456, 2) as round_res, trunc(123.450, 2) as trunc_res from dual;
+
+
+-- dept wise min and max salaries
+
+select department_id, min(salary) as min_salary, max(salary) as max_salary
+ from hr.EMPLOYEES group by department_id;
+ 
+ -- DESCRIBE hr.EMPLOYEES;
+
+-- select hire_date, extract(year from hire_date) as year,  
+--                     extract(month from hire_date) as month,
+--                      extract(day from hire_date) as day from hr.employees;
+
+-- select  sysdate, add_months(sysdate, -3) from dual;
+-- select sysdate + 3, sysdate-3 from dual;
+-- select months_between(sysdate, to_date('2000-01-01', 'YYYY-MM-DD')) from dual;
+select next_day(sysdate, 'THURSDAY') AS next_day,
+ LAST_day(to_date('2001-02-01', 'YYYY-MM-DD')) AS last_day from dual;
+
+
+
+-- select to_char(sysdate, 'Month') as month, to_char(sysdate, 'year') as year from dual;
+select to_char(sysdate, 'Day'), to_char(sysdate, 'DD'), to_char(sysdate, 'MM')
+ , to_char(sysdate, 'YYYY')  from dual;
+ 
+ select * from hr.employees where hire_date <= to_date('2013-01-01', 'YYYY-MM-DD') order by hire_date;
